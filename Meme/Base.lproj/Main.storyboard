@@ -11,7 +11,7 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Item 2-->
+        <!--View Controller-->
         <scene sceneID="5xt-HE-mSU">
             <objects>
                 <viewController id="bBB-uv-iq1" sceneMemberID="viewController">
@@ -20,15 +20,16 @@
                         <viewControllerLayoutGuide type="bottom" id="JOv-pp-GMR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Asy-O3-wpg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" selectedImage="collection" id="FmH-dK-g8n"/>
+                    <tabBarItem key="tabBarItem" title="" image="collection" selectedImage="collection" id="FmH-dK-g8n"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxw-dL-JdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="286" y="435"/>
+            <point key="canvasLocation" x="146" y="431"/>
         </scene>
         <!--Sent Memes-->
         <scene sceneID="83Q-m5-Pw1">
@@ -72,13 +73,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WFQ-L9-vHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1098" y="-227"/>
+            <point key="canvasLocation" x="614" y="-231"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="RKm-ml-ulc">
             <objects>
                 <tabBarController id="kwu-8v-WM3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="cto-zN-kvf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -91,7 +93,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oa2-Uv-x3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-534" y="104"/>
+            <point key="canvasLocation" x="-448" y="86"/>
         </scene>
         <!--Editor View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -202,14 +204,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1661" y="-751"/>
+            <point key="canvasLocation" x="1191" y="167"/>
         </scene>
-        <!--Item 1-->
+        <!--Navigation Controller-->
         <scene sceneID="mmr-fh-1q6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yJN-pv-kuF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" selectedImage="table" id="c36-aY-Qf3"/>
+                    <tabBarItem key="tabBarItem" title="" image="table" selectedImage="table" id="c36-aY-Qf3"/>
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4AK-QS-Nu1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -221,7 +224,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55t-oU-FG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="286" y="-227"/>
+            <point key="canvasLocation" x="146" y="-231"/>
         </scene>
     </scenes>
     <resources>
