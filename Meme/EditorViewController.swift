@@ -108,9 +108,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func cancelMeme(sender: UIBarButtonItem) {
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
-        imagePickerView.image = nil
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     //MARK: Image Selection
