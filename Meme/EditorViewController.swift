@@ -67,7 +67,11 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     //MARK: Meme Generation
     func save(memeImage:UIImage) {
-        var meme = Meme(topString: topTextField.text!, bottomString: topTextField.text!, originalImage: imagePickerView.image!, memeImage: memeImage)
+        var meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalImage: imagePickerView.image!, memeImage: memeImage)
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.memes.append(meme)
+        
+        println(appDelegate.memes)
     }
     
     func generateMemedImage() -> UIImage {
