@@ -20,6 +20,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // fixes strange gap at the top of the table view
+        // ref: http://stackoverflow.com/questions/18880341/why-is-there-extra-padding-at-the-top-of-my-uitableview-with-style-uitableviewst
+        self.automaticallyAdjustsScrollViewInsets = false;
     }
     
     override func viewWillAppear(animated: Bool) {

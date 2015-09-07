@@ -114,8 +114,12 @@
                         <constraints>
                             <constraint firstItem="u7s-bV-5vO" firstAttribute="top" secondItem="YcI-hd-HcU" secondAttribute="bottom" id="0hf-Jm-eZf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="u7s-bV-5vO" secondAttribute="trailing" constant="-16" id="Avu-IG-fiY"/>
+                            <constraint firstItem="u7s-bV-5vO" firstAttribute="leading" secondItem="9lL-qL-LdX" secondAttribute="leadingMargin" constant="-16" id="E67-u3-wQ0"/>
+                            <constraint firstItem="Jqi-xY-08G" firstAttribute="top" secondItem="u7s-bV-5vO" secondAttribute="bottom" id="RQE-kV-Frt"/>
                             <constraint firstItem="u7s-bV-5vO" firstAttribute="leading" secondItem="9lL-qL-LdX" secondAttribute="leadingMargin" constant="-16" id="SSW-K9-xKS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="u7s-bV-5vO" secondAttribute="trailing" constant="-16" id="fuS-Ey-cn2"/>
                             <constraint firstItem="Jqi-xY-08G" firstAttribute="top" secondItem="u7s-bV-5vO" secondAttribute="bottom" id="mdb-NH-gfA"/>
+                            <constraint firstItem="u7s-bV-5vO" firstAttribute="top" secondItem="YcI-hd-HcU" secondAttribute="bottom" id="xf3-d4-yUs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sent Memes" id="gKz-wX-cfW">
