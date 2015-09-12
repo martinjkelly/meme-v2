@@ -14,20 +14,19 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tableView: UITableView!
     
     var memes:[Meme]!
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        // fixes strange gap at the top of the table view
-        // ref: http://stackoverflow.com/questions/18880341/why-is-there-extra-padding-at-the-top-of-my-uitableview-with-style-uitableviewst
-        self.automaticallyAdjustsScrollViewInsets = false;
+
+        tableView.separatorColor = UIColor.clearColor()
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
     
     override func viewWillAppear(animated: Bool) {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         memes = appDelegate.memes
         tableView.reloadData()
     }
@@ -37,9 +36,13 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("memeCell") as! UITableViewCell
-        cell.textLabel?.text = "\(memes[indexPath.row].topString) ... \(memes[indexPath.row].bottomString)"
-        cell.imageView?.image = memes[indexPath.row].memeImage
+        var cell:TableViewCell = self.tableView.dequeueReusableCellWithIdentifier("memeCell") as! TableViewCell
+        cell.memeText?.text = "\(memes[indexPath.row].topString) ... \(memes[indexPath.row].bottomString)"
+        
+        if let imageView = cell.memeImageView {
+            imageView.image = memes[indexPath.row].memeImage
+            imageView.backgroundColor = UIColor.grayColor()
+        }
         return cell
     }
     
