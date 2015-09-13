@@ -16,6 +16,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     
     var memes:[Meme]!
     var reuseIdentifier = "memeCollectionCell"
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     override func viewWillAppear(animated: Bool) {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
         memes = appDelegate.memes
         collectionView.reloadData()
     }
@@ -40,7 +41,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         var meme = memes[indexPath.row]
         let VC = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! DetailViewController
-        VC.meme = meme
+        VC.memeIndex = appDelegate.findIndexOfMeme(meme)
         navigationController?.pushViewController(VC, animated: true)
     }
     

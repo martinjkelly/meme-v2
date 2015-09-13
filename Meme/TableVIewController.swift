@@ -49,7 +49,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var meme = memes[indexPath.row]
         let VC = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! DetailViewController
-        VC.meme = meme
+        VC.memeIndex = appDelegate.findIndexOfMeme(meme)
         navigationController?.pushViewController(VC, animated: true)
     }
     
