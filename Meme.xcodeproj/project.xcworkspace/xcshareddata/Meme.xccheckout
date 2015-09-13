@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>20397111-F49D-4CBE-B469-8946C5C4B9A3</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Meme</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>13B2150ED705DF4B34E4B481EDFD0955F647E3E0</key>
 		<string>https://github.com/martinjkelly/meme-v2.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Meme.xcodeproj/project.xcworkspace</string>
+	<string>Meme.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>13B2150ED705DF4B34E4B481EDFD0955F647E3E0</key>

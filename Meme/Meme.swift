@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 
-struct Meme {
+class Meme: NSObject {
     var topString:String
     var bottomString:String
-    var originalImage:UIImage
-    var memeImage:UIImage
+    var originalImage:UIImage!
+    var memeImage:UIImage!
+    
     
     init(topString:String, bottomString:String, originalImage:UIImage, memeImage:UIImage) {
         self.topString = topString
@@ -21,4 +22,5 @@ struct Meme {
         self.originalImage = originalImage
         self.memeImage = memeImage
     }
+    
 }

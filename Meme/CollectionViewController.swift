@@ -37,6 +37,13 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        var meme = memes[indexPath.row]
+        let VC = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! DetailViewController
+        VC.meme = meme
+        navigationController?.pushViewController(VC, animated: true)
+    }
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSize(width: 100 , height: 100)
     }

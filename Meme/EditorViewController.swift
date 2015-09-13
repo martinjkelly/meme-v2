@@ -70,8 +70,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         var meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalImage: imagePickerView.image!, memeImage: memeImage)
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.memes.append(meme)
-        
-        println(appDelegate.memes)
     }
     
     func generateMemedImage() -> UIImage {
@@ -127,6 +125,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = image
+            shareButton.enabled = true
         }
         dismissViewControllerAnimated(true, completion: nil)
     }
