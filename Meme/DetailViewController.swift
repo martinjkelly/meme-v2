@@ -14,11 +14,17 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var memeImageView: UIImageView!
     
     var meme:Meme!
+    var memeIndex:Int!
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    override func viewDidLoad() {
+        memeIndex = appDelegate.findIndexOfMeme(meme)!
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        meme = appDelegate.memes[memeIndex]
         if let memeImage = meme.memeImage {
             memeImageView.image = memeImage
         }
@@ -29,12 +35,11 @@ class DetailViewController: UIViewController {
         let VC = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! EditorViewController
         VC.meme = meme
         presentViewController(VC, animated: true, completion: nil)
-    
     }
     
     @IBAction func deleteMeme(sender: UIBarButtonItem) {
         
-        if let memeIndex = find(appDelegate.memes, meme) {
+        if let memeIndex = appDelegate.findIndexOfMeme(meme) {
             appDelegate.memes.removeAtIndex(memeIndex)
         }
         

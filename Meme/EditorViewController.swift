@@ -18,6 +18,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         NSStrokeWidthAttributeName : -3.0
     ]
     
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var meme:Meme?
     var memeImage:UIImage?
     
@@ -31,7 +32,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var topTextField: UITextField!{
         didSet {
             topTextField.delegate = self
-            topTextField.defaultTextAttributes = self.memeTextAttributes
+            topTextField.defaultTextAttributes = memeTextAttributes
             topTextField.textAlignment = NSTextAlignment.Center
             topTextField.text = "TOP"
         }
@@ -39,7 +40,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var bottomTextField: UITextField!{
         didSet {
             bottomTextField.delegate = self
-            bottomTextField.defaultTextAttributes = self.memeTextAttributes
+            bottomTextField.defaultTextAttributes = memeTextAttributes
             bottomTextField.textAlignment = NSTextAlignment.Center
             bottomTextField.text = "BOTTOM"
         }
@@ -77,14 +78,18 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     //MARK: Meme Generation
     func save(memeImage:UIImage) {
-        if let currentMeme = meme {
-            currentMeme.topString = topTextField.text
-            currentMeme.bottomString = bottomTextField.text
-            currentMeme.originalImage = imagePickerView.image
-            currentMeme.memeImage = memeImage
+        if meme != nil {
+            var newMeme = meme!
+            newMeme.topString = topTextField.text
+            newMeme.bottomString = bottomTextField.text
+            newMeme.originalImage = imagePickerView.image
+            newMeme.memeImage = memeImage
+            
+            if let memeIndex = appDelegate.findIndexOfMeme(meme!) {
+                appDelegate.memes[memeIndex] = newMeme
+            }
         } else {
             var meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalImage: imagePickerView.image!, memeImage: memeImage)
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.memes.append(meme)
         }
     }
@@ -94,8 +99,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         topBar.hidden = true
         bottomBar.hidden = true
         
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -118,9 +123,11 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         var image = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         controller.completionWithItemsHandler = {(activity, success, items, error) in
-            self.save(image)
-            controller.dismissViewControllerAnimated(true, completion: nil)
-            self.dismissViewControllerAnimated(true, completion: nil)
+            if (success) {
+                self.save(image)
+                controller.dismissViewControllerAnimated(true, completion: nil)
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
         }
         presentViewController(controller, animated: true, completion: nil)
         

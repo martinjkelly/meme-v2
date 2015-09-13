@@ -9,18 +9,13 @@
 import Foundation
 import UIKit
 
-class Meme: NSObject {
+struct Meme {
     var topString:String
     var bottomString:String
     var originalImage:UIImage!
     var memeImage:UIImage!
-    
-    
-    init(topString:String, bottomString:String, originalImage:UIImage, memeImage:UIImage) {
-        self.topString = topString
-        self.bottomString = bottomString
-        self.originalImage = originalImage
-        self.memeImage = memeImage
-    }
-    
+}
+
+func ==(lhs: Meme, rhs: Meme) -> Bool {
+    return lhs.topString == rhs.topString && lhs.bottomString == rhs.topString && lhs.originalImage == rhs.originalImage && lhs.memeImage == rhs.memeImage
 }

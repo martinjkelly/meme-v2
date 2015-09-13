@@ -36,7 +36,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:TableViewCell = self.tableView.dequeueReusableCellWithIdentifier("memeCell") as! TableViewCell
+        var cell:TableViewCell = tableView.dequeueReusableCellWithIdentifier("memeCell") as! TableViewCell
         cell.memeText?.text = "\(memes[indexPath.row].topString) ... \(memes[indexPath.row].bottomString)"
         
         if let imageView = cell.memeImageView {
