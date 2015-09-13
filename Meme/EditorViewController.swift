@@ -18,6 +18,9 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         NSStrokeWidthAttributeName : -3.0
     ]
     
+    var meme:Meme?
+    var memeImage:UIImage?
+    
     // MARK: Outlets
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -44,6 +47,13 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let currentMeme = meme {
+            topTextField.text = meme?.topString
+            bottomTextField.text = meme?.bottomString
+            imagePickerView.image = meme?.originalImage
+            shareButton.enabled = true
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -67,9 +77,16 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     //MARK: Meme Generation
     func save(memeImage:UIImage) {
-        var meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalImage: imagePickerView.image!, memeImage: memeImage)
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.memes.append(meme)
+        if let currentMeme = meme {
+            currentMeme.topString = topTextField.text
+            currentMeme.bottomString = bottomTextField.text
+            currentMeme.originalImage = imagePickerView.image
+            currentMeme.memeImage = memeImage
+        } else {
+            var meme = Meme(topString: topTextField.text!, bottomString: bottomTextField.text!, originalImage: imagePickerView.image!, memeImage: memeImage)
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.memes.append(meme)
+        }
     }
     
     func generateMemedImage() -> UIImage {
